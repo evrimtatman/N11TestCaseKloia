@@ -1,7 +1,8 @@
 package com.n11;
 
+import com.n11.util.Helper;
+
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class N11HomePage extends BasePage {
 
@@ -11,20 +12,12 @@ public class N11HomePage extends BasePage {
     }
 
     public void closePopup() {
-        int handles = getWebDriver().getWindowHandles().size();
-        switchTo().window(handles - 1);
-
+        Helper.switchLastTab();
         $(".fancybox-close").click();
-
     }
+
     public void closeFancyPopup() {
-        int handles = getWebDriver().getWindowHandles().size();
-        switchTo().window(handles - 1);
-
+        Helper.switchLastTab();
         $(".fancybox-close").click();
-
     }
-
-
-
 }

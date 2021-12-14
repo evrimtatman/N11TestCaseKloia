@@ -1,11 +1,8 @@
 package com.n11;
 
-import com.codeborne.selenide.SelenideElement;
+import com.n11.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import sun.lwawt.macosx.CSystemTray;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -13,7 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class N11ProductListPage extends BasePage {
 
     public static String CATEGORY_ITEM = "//a[contains(text(),'Parfüm & Deodorant')]";
-    public static String BASKET = "//div[@class='add-to-bs-tx']";
     public static String PRODUCT_POSITION = "[data-position='7']";
     private static String N11_FAVORITE_PAGE_URL = "https://www.n11.com/hesabim/favorilerim";
 
@@ -61,7 +57,6 @@ public class N11ProductListPage extends BasePage {
     }
     public void verifyTexts(String text1, String text2) {
         Assert.assertEquals(text1, text2);
-
     }
 }
 

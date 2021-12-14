@@ -1,6 +1,5 @@
 package com.n11;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class N11ProductListPageTest extends BasePage {
