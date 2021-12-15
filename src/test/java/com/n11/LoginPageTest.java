@@ -15,7 +15,6 @@ public class LoginPageTest extends BasePage {
         login.chooseLoginOption();
         login.loginFB(ConfigurationReader.get("username"), ConfigurationReader.get("password"));
         login.verifyAccountLoggedIn();
-        // homePage.closePopup();
     }
 
 

@@ -1,5 +1,7 @@
 package com.n11;
 
+import com.n11.util.ConfigurationReader;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class N11ProductListPageTest extends BasePage {
@@ -22,14 +24,16 @@ public class N11ProductListPageTest extends BasePage {
 
         catList.addToWishList();
         loginPage.chooseLoginOption();
-        loginPage.loginFB("","");
-        loginPage.verifyAccountLoggedIn();
+        loginPage.loginFB(ConfigurationReader.get("username"), ConfigurationReader.get("password"));
+        boolean isAccountLoggedIn = loginPage.verifyAccountLoggedIn();
+        Assert.assertTrue(isAccountLoggedIn);
+
         catList.addToWishList();
         catList.confirmWishList();
         catList.goToFavoritePage();
-        //String addedProductFullName = catList.getWishListAddedProdName();
+        String addedProductFullName = catList.getWishListAddedProdName();
         catList.getWishListAddedProdName();
-        //catList.verifyTexts(selectedProductTitle,addedProductFullName);
+        catList.verifyTexts(selectedProductTitle,addedProductFullName);
 
     }
 }

@@ -7,10 +7,9 @@ import org.openqa.selenium.By;
 import com.n11.util.ConfigurationReader;
 
 import static com.codeborne.selenide.Selenide.*;
-
 public class BasePage {
     BasePage(){
-        Configuration.browser = "Chrome";
+        Configuration.browser = ConfigurationReader.get("browser");
         Configuration.startMaximized = true;
         Configuration.headless = false;
         clearBrowserCookies();

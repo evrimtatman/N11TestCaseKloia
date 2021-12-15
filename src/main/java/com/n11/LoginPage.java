@@ -3,6 +3,7 @@ package com.n11;
 
 import com.n11.BasePage;
 import com.n11.util.Helper;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -28,8 +29,8 @@ public class LoginPage extends BasePage {
 
     public boolean verifyAccountLoggedIn() {
         $("a.menuLink.user").shouldBe(visible, Duration.ofSeconds(30));
-        $("a[title='Giriş Yap']").shouldNotHave(visible);
-        return true;
+        String accountName = $(".menuLink.user").getOwnText();
+        return !accountName.equals("Giriş Yap");
     }
 
 }
